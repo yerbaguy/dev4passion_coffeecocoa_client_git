@@ -76,13 +76,23 @@ function updateProductsInCart(product) { // 2
 
 products.forEach(item => {   // 1
     //product.forEach()
+
+
+   // console.log("product", product);
+    
     item.addEventListener('click', (e) => {
        
         product.map(product => {
-            console.log("product", product)
+            
        // })
 
         if (e.target.classList.contains('addToCart')) {
+
+            console.log("productttttttt", product);
+
+
+
+
             // product.map(product=>{
             //     console.log("product", product)
             // })
@@ -102,16 +112,24 @@ products.forEach(item => {   // 1
             // updateProductsInCart(product);
             // updateShoppingCartHTML();
            //// const productID = e.target.dataset.productId;
-            const productID = product.index;
-            const productName = item.querySelector('.productName').innerHTML = product.product_description;
-            console.log("productName", productName);
-            console.log("product Index", productID);
 
-            let productToCart = {
-                name: productName,
-                id: productID,
-                count: 1
-            };
+
+            
+
+            /////out
+            // const productID = product.index;
+            // const productName = item.querySelector('.productName').innerHTML = product.product_description;
+            // console.log("productName", productName);
+            // console.log("product Index", productID);
+
+            // let productToCart = {
+            //     name: productName,
+            //     id: productID,
+            //     count: 1
+            // };
+            //////
+
+
 
             // console.log("productToCart", productToCart);
 
@@ -127,13 +145,18 @@ products.forEach(item => {   // 1
             //     basePrice: +productPrice,
             // }
             //  updateProductsInCart(product);
-            updateProductsInCart(productToCart);
-            updateShoppingCartHTML();
+
+
+            /////crossed out
+            // updateProductsInCart(productToCart);
+            // updateShoppingCartHTML();
+            ////crossed out
         }
 
     })
 
-    });
+    }); item
+
 });
 
 parentElement.addEventListener('click', (e) => { // Last
