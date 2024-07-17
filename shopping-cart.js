@@ -1,5 +1,5 @@
-let productsInCart = JSON.parse(localStorage.getItem('shoppingCart'));
-//let productsInCart = [];
+//let productsInCart = JSON.parse(localStorage.getItem('shoppingCart'));
+let productsInCart = [];
 let product = JSON.parse(localStorage.getItem('product'));
 if (!productsInCart) {
     productsInCart = [];
@@ -18,7 +18,7 @@ const countTheSumPrice = function () { // 4
 }
 
 const updateShoppingCartHTML = function () {  // 3
-    localStorage.setItem('shoppingCart', JSON.stringify(productsInCart));
+   // localStorage.setItem('shoppingCart', JSON.stringify(productsInCart));
     if (productsInCart.length > 0) {
         let result = productsInCart.map(product => {
             return `
