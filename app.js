@@ -28,6 +28,7 @@ var form = document.getElementById("myForm"),
     coffee_roasted_origin = document.getElementById("coffee_roasted_origin"),
     submitBtn = document.querySelector(".submit"),
     userInfo = document.getElementById("data"),
+    productcart = document.getElementById("productcart"),
     modal = document.getElementById("userForm"),
     modalTitle = document.querySelector("#userForm .modal-title"),
     newUserBtn = document.querySelector(".newUser")
@@ -174,6 +175,68 @@ function showInfo() {
 
         userInfo.innerHTML += createElement
     })
+
+
+    // let product = localStorage.getItem('product');
+    // console.log("pppprroduct", product);
+
+
+    let product = JSON.parse(localStorage.getItem('product'));
+
+    product.forEach((element, index)=>{
+        console.log(element.product_description);
+
+
+        let createElement = `<tr class="employeeDetails">
+           
+           <td>${index + 1}</td>
+           
+            <td><img src="${element.picture}" alt="" width="50" height="50"></td>
+            <td>${element.product_description}</td>
+           
+            
+
+
+            <td>
+                <button style="background-color: #855c37" class="btn btn-success" onclick="readInfo(${index},'${element.picture}', '${element.coffee_roasted_product_description}', '${element.coffee_roasted_farm}', '${element.coffee_roasted_farmer}', '${element.coffee_roasted_roaster}','${element.coffee_roasted_dealer}', '${element.coffee_roasted_brand}', '${element.coffee_roasted_origin}')" data-bs-toggle="modal" data-bs-target="#readData">view moreeeeee</button>
+                <button style="background-color: #855c37" class="btn btn-success" onclick="changeNumberOfUnits('minus', ${index})" >-</button>
+                <button style="background-color: #855c37" class="btn btn-success" onclick="addToBasket(${index}, '${element.coffee_roasted_product_description}' )" >Add to Basket</button>
+                <button style="background-color: #855c37" class="btn btn-success" onclick="changeNumberOfUnits('plus', ${index})" >+</button>
+
+
+                <button style="background-color: #855c37" class="btn btn-success" onclick="showProduct()" >show</button>
+
+
+
+                <button style="background-color: #855c37" class="btn btn-success" onclick="decrementInBasket(${index}, '${element.coffee_roasted_product_description}' )" >Minus</button>
+
+                <button style="background-color: #855c37" class="btn btn-success" onclick="totalClick(1)" >Plus</button>
+               
+                <span  id="totalClicks">${prod.length}yy</span>
+               
+                <button style="background-color: #855c37" class="btn btn-success" onclick="totalClick(-1)" >Minus</button>
+
+
+
+
+
+
+                            
+            </td>
+        </tr>`
+
+        productcart.innerHTML += createElement
+
+
+
+
+    })
+
+    for (let i = 0; i < product.length; i++) {
+        console.log("product", product[i].product_description);
+    }
+
+   
 }
 showInfo()
 
@@ -567,27 +630,69 @@ function img(x) {
 
 
 var removeCartItemButtons = document.getElementsByClassName('btn-danger');
-console.log(removeCartItemButtons);
+console.log("removeCartItemButtons", removeCartItemButtons);
 
-for (i=0; i<removeCartItemButtons.length; i++) {
-    var button = removeCartItemButtons[i];
-    button.addEventListener('click', function(){
-        console.log('clicked');
-        var buttonClicked = event.target
-        buttonClicked.parentElement.parentElement.remove();
+let productss = JSON.parse(localStorage.getItem('product'));
 
-        updateCartTotal();
-    })
+for ( let i = 0; i < productss.length; i++) {
+     console.log("productss", productss[i].product_description);
+}
+
+
+
+let productt = localStorage.getItem('product');
+for (let i = 0; i < productt.length; i++) {
+    console.log("productt", productt[i].product_description);
+        //  let prod = productt[i];
+        //  let prod_desc = prod.product_description
+        //  console.log("prod_desc", prod_desc);
+
+}
+//console.log("producttttt", productt);
+
+// for (i=0; i<removeCartItemButtons.length; i++) {
+//     var button = removeCartItemButtons[i];
+//     button.addEventListener('click', function(){
+//         console.log('clicked kdkdkdk');
+//         // var buttonClicked = event.target
+//         // buttonClicked.parentElement.parentElement.remove();
+
+//         // updateCartTotal();
+//     })
+// }
+
+for ( i = 0; i < productt.length; i++) {
+    var prod = productt[i];
+    var prod_desc = prod.product_description
+    console.log("product", product[i].product_description);
 }
 
 function updateCartTotal() {
+    // var cartItemContainer = document.getElementsByClassName('cart-items')[0];
+    // var cartRows = document.getElementsByClassName('cart-row')
+    // for (var i=0; i<cartRows.length; i++) {
+    //     var cartRow = cartRows[i];
+    //     var priceElement = cartRow.getElementsByClassName('cart-price')[0];
+    //     var quantityElement = cartRow.getElementsByClassName('cart-quantity-input')[0];
+    //     console.log(priceElement, quantityElement);
+    // }
     var cartItemContainer = document.getElementsByClassName('cart-items')[0];
     var cartRows = document.getElementsByClassName('cart-row')
-    for (var i=0; i<cartRows.length; i++) {
-        var cartRow = cartRows[i];
-        var priceElement = cartRow.getElementsByClassName('cart-price')[0];
-        var quantityElement = cartRow.getElementsByClassName('cart-quantity-input')[0];
-        console.log(priceElement, quantityElement);
+    for (var i = 0; i < cartRows.length; i++) {
+        let productss = JSON.parse(localStorage.getItem('product'));
+        for (var j = 0; j < productss[i].length; j++) {
+
+            // var cartRow = cartRows[i];
+            // var priceElement = cartRow.getElementsByClassName('cart-price')[0];
+            // var quantityElement = cartRow.getElementsByClassName('cart-quantity-input')[0];
+            // console.log(priceElement, quantityElement);
+           
+            console.log("product ---", productss[j]);
+
+
+        }
+    
+
     }
 }
 
